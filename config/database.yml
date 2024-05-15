@@ -1,0 +1,40 @@
+development:
+  adapter: postgresql
+  database: ror-campinapolis-compras
+  pool: 5
+  timeout: 8000
+
+
+production:
+  adapter: postgresql
+  database: ror-campinapolis-compras
+  pool: 5
+  timeout: 8000
+
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   host: prefeitura.campinapolis.net
+#   port: 5432
+#   database: ror-campinapolis-compras
+#   username: postgres
+#   password: omega200
+#   pool: 5
+#   timeout: 5000
+
+# production:
+#   adapter: postgresql
+#   database: ror-campinapolis-compras
+#   host: 200.39.135.88
+#   username: postgres
+#   password: omega200
+#   port: 5432
+#   pool: 5
+#   timeout: 8000
+
+test:
+  adapter: postgresql
+  database: ror-campinapolis-compras-test
+  pool: 5
+  timeout: 5000
