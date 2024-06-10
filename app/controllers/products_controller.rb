@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :update, :destroy]
 
   def all_not_excluded_and_paused
     products1 = Product.where(status:'active')
@@ -22,6 +21,16 @@ class ProductsController < ApplicationController
     render json: Product.search_by_keyword(product_name)
   end
 
+  def destroy
+    product_id = product_params["id"]
+    product = Product.find_by(id: product_id)
+    if product
+      product.destroy
+      render json: { message: 'ok' }, status: :ok
+    else
+      render json: { message: 'error', error: 'inexistente' }, status: :not_found
+    end
+  end
 
 private
 
@@ -29,11 +38,7 @@ private
       params.require(:product).permit(:product_name)
     end
 
-    def set_product
-      @product = Product.find(params[:id])
-    end
-
     def product_params
-      params.require(:product).permit(:name, :category_id,:description, :price, :img,:organization_id,:status)
+      params.require(:product).permit(:id,:name, :category_id,:description, :price, :img,:organization_id,:status)
     end
 end

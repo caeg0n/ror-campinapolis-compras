@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
 	
 	delete 'addresses', to: 'addresses#destroy'
+	delete 'products', to: 'products#destroy'
 
 	post 'orders', to: "orders#create"
 	post 'login', to: "organizations#login"

@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  include ResponseHandler
   before_action :set_organization, only: [:show, :update, :destroy]
   
   def login
@@ -34,15 +35,17 @@ class OrganizationsController < ApplicationController
   def update_state
     uuid = update_state_params["uuid"]
     is_open = update_state_params["is_open"]
-    auth = OrganizationDevice.find_by(device_id:uuid).status
+    auth = OrganizationDevice.find_by(device_id:uuid)
+    auth = OrganizationDevice.find_by(device_id:uuid).status if auth.present?
+    return render_json_response(message:"not_authorized", state: ResponseHandler::STATES[:not_authorized]) if not auth.present?
+    return render_json_response(message:"not_authorized", state: ResponseHandler::STATES[:not_authorized]) if auth != "enabled"    
+    return render_json_response(message:"invalid_value", state: ResponseHandler::STATES[:invalid_value]) if not ( is_open.is_a?(TrueClass) || is_open.is_a?(FalseClass) )
     organization_id = OrganizationDevice.find_by(device_id:uuid).organization_id
-    return render json: { message:"error", number:1 }, status: :ok if organization_id == nil
-    return render json: { message:"error", number:2 }, status: :ok if auth != "enabled"    
-    return render json: { message:"error", number:3 }, status: :ok if not ( is_open.is_a?(TrueClass) || is_open.is_a?(FalseClass) )
+    return render_json_response(message:"not_found", state: ResponseHandler::STATES[:not_found]) if organization_id == nil
     organization = Organization.find_by(id:organization_id)
     organization.open = is_open
     organization.save 
-    return render json: { message: "ok", is_open: Organization.find_by(id:organization_id).open }, status: :ok
+    return render_json_response(obj:{is_open: Organization.find_by(id:organization_id).open}, message:"success", state: ResponseHandler::STATES[:success])
   end
 
   def update_organization_delivery_type
@@ -217,7 +220,8 @@ class OrganizationsController < ApplicationController
                 description: product.description,
                 price: product.price,
                 image: product.img,
-                organization_id: product.organization_id
+                organization_id: product.organization_id,
+                category_id: product.category_id
               }
             end
           }
