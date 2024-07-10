@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  include ResponseHandler
 
   def all_not_excluded_and_paused
     products1 = Product.where(status:'active')
@@ -26,9 +27,23 @@ class ProductsController < ApplicationController
     product = Product.find_by(id: product_id)
     if product
       product.destroy
-      render json: { message: 'ok' }, status: :ok
+      return render_json_response(state: ResponseHandler::STATES[:destroyed])
     else
-      render json: { message: 'error', error: 'inexistente' }, status: :not_found
+      return render_json_response(state: ResponseHandler::STATES[:fail])
+    end
+  end
+
+  def pause_product
+    product_id = product_params["id"]
+    status = product_params["status"]
+    product = Product.find_by(id: product_id)
+    if product
+      product.status = status
+      product.save
+      return render_json_response(state: ResponseHandler::STATES[:paused]) if status == "paused"
+      return render_json_response(state: ResponseHandler::STATES[:active]) if status == "active"
+    else
+      return render_json_response(state: ResponseHandler::STATES[:fail])
     end
   end
 

@@ -37,11 +37,11 @@ class OrganizationsController < ApplicationController
     is_open = update_state_params["is_open"]
     auth = OrganizationDevice.find_by(device_id:uuid)
     auth = OrganizationDevice.find_by(device_id:uuid).status if auth.present?
-    return render_json_response(message:"not_authorized", state: ResponseHandler::STATES[:not_authorized]) if not auth.present?
-    return render_json_response(message:"not_authorized", state: ResponseHandler::STATES[:not_authorized]) if auth != "enabled"    
-    return render_json_response(message:"invalid_value", state: ResponseHandler::STATES[:invalid_value]) if not ( is_open.is_a?(TrueClass) || is_open.is_a?(FalseClass) )
+    return render_json_response(state: ResponseHandler::STATES[:not_authorized]) if not auth.present?
+    return render_json_response(state: ResponseHandler::STATES[:not_authorized]) if auth != "enabled"    
+    return render_json_response(state: ResponseHandler::STATES[:invalid_value]) if not ( is_open.is_a?(TrueClass) || is_open.is_a?(FalseClass) )
     organization_id = OrganizationDevice.find_by(device_id:uuid).organization_id
-    return render_json_response(message:"not_found", state: ResponseHandler::STATES[:not_found]) if organization_id == nil
+    return render_json_response(state: ResponseHandler::STATES[:not_found]) if organization_id == nil
     organization = Organization.find_by(id:organization_id)
     organization.open = is_open
     organization.save 

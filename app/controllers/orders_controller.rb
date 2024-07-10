@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include ResponseHandler
   #before_action :set_orders, only: [:show, :update, :destroy]
 
   def index
@@ -60,7 +61,9 @@ class OrdersController < ApplicationController
       return render json: enriched_grouped_orders
     end
   end
-  
+
+  def get_order_possibles_states
+  end
 
   def create
     order = Order.new(order_params)

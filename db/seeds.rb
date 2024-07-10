@@ -1,4 +1,5 @@
 require 'digest/md5'
+require 'factory_bot_rails'
 #tabacaria aguiar
 Address.destroy_all
 Payment.destroy_all
@@ -118,24 +119,24 @@ OrganizationCategoryTag.create(organization_id:badoy_id,tag: :acougue)
 OrganizationCategoryTag.create(organization_id:vianet_id,tag: :informatica)
 puts "CategoriasTag criadas " + OrganizationCategoryTag.count.to_s
 
-Product.create(name:"Essência Premium FM Brasil",organization_id:tabacaria_id,
-	                                             description:"tabaco bem picotado e bastante melaço, com sabor intenso e duradouro",
-	                                             price:"1.50",
-	                                             img:"https://res.cloudinary.com/campinapolis-com/image/upload/v1615584882/camp-delivery/products/cigarro.png",
-	                                             status:2,
-												 category_id:Category.where(organization_id:tabacaria_id).order("RANDOM()").first.id)
-Product.create(name:"Mesa Para Narguile",organization_id:tabacaria_id,
-	                   description:"Mesa Narguile em Madeira",
-	                   price:"2.70",
-	                   img:"https://res.cloudinary.com/campinapolis-com/image/upload/v1615584976/camp-delivery/products/mesa.png",
-	                   status:2,
-					   category_id:Category.where(organization_id:tabacaria_id).order("RANDOM()").first.id)
-Product.create(name:"Erva Mate Constança",organization_id:tabacaria_id,
-	                   description:"Erva Mate Especial Pura Folha 1kg",
-	                   price:"3.80",
-	                   img:"https://res.cloudinary.com/campinapolis-com/image/upload/v1615584895/camp-delivery/products/erva.png",
-	                   status:2,
-					   category_id:Category.where(organization_id:tabacaria_id).order("RANDOM()").first.id)
+# Product.create(name:"Essência Premium FM Brasil",organization_id:tabacaria_id,
+# 	                                             description:"tabaco bem picotado e bastante melaço, com sabor intenso e duradouro",
+# 	                                             price:"1.50",
+# 	                                             img:"https://res.cloudinary.com/campinapolis-com/image/upload/v1615584882/camp-delivery/products/cigarro.png",
+# 	                                             status:2,
+# 												 category_id:Category.where(organization_id:tabacaria_id).order("RANDOM()").first.id)
+# Product.create(name:"Mesa Para Narguile",organization_id:tabacaria_id,
+# 	                   description:"Mesa Narguile em Madeira",
+# 	                   price:"2.70",
+# 	                   img:"https://res.cloudinary.com/campinapolis-com/image/upload/v1615584976/camp-delivery/products/mesa.png",
+# 	                   status:2,
+# 					   category_id:Category.where(organization_id:tabacaria_id).order("RANDOM()").first.id)
+# Product.create(name:"Erva Mate Constança",organization_id:tabacaria_id,
+# 	                   description:"Erva Mate Especial Pura Folha 1kg",
+# 	                   price:"3.80",
+# 	                   img:"https://res.cloudinary.com/campinapolis-com/image/upload/v1615584895/camp-delivery/products/erva.png",
+# 	                   status:2,
+# 					   category_id:Category.where(organization_id:tabacaria_id).order("RANDOM()").first.id)
 Product.create(name:"Caixa de Skol",organization_id:upa_id,
 	                   description:"Caixa de Skol 12 unidades 160ml",
 	                   price:"27.80",
