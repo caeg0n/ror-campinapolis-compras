@@ -36,7 +36,8 @@ Rails.application.routes.draw do
 			put 'update_fees', to: "organization_devices#update_fees"
 			#get 'print', to: "print#index"
 			#get 'get_products_length/:id', to: "products#get_length"
-			get 'get_order_possibles_states', to: "order#get_order_possibles_states"
+			get 'get_order_possibles_states', to: "orders#get_order_possibles_states"
+			get 'get_order_initial_states', to: "orders#get_order_initial_states"
 			get 'get_orders/organization/:organization_id', to: "orders#index"
 			get 'get_orders/device/:device_id', to: "orders#index"
 			get 'get_orders_by_organization/:uuid/:organization_id', to: "orders#get_orders_by_organization"
@@ -65,6 +66,7 @@ Rails.application.routes.draw do
 			get 'organization_devices', to: "organization_devices#find"
 			get 'search_product', to: "products#search"
 			get 'privacy_policy', to: 'static_pages#privacy_policy'
+			get 'get_privacy_policy/:id', to: 'static_pages#get_privacy_policy'
 			
 			namespace :empresa do
 				get 'get_orders_by_organization/:uuid/:organization_id', to: "orders#get_orders_by_organization"

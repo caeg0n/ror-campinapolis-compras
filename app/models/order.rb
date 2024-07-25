@@ -20,9 +20,10 @@ class Order < ApplicationRecord
 													"25"=>"_desistiu_da_entrega",
 													"27"=>"cliente_rejeitou_a_entrega",
 													"29"=>"cliente_desistiu_da_entrega",
-													"30"=>"entrega_efetuada",
+													"31"=>"entrega_efetuada",
 													"32"=>"entrega_recebida",
-													"33"=>"cancelado_pela_plataforma"
+													"33"=>"cancelado_pela_plataforma",
+													"35"=>"entregue_pela_plataforma"
 												}
 
 	enum initial_states: [:initial_0,:initial_2,:initial_4,:initial_6,:initial_8,:initial_10,:initial_12,:initial_23]

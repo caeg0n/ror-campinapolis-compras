@@ -26,17 +26,17 @@ class OrdersController < ApplicationController
     end
   end
 
-  def get_order_status_list
-    render json: Order.order_status_lists
-  end
+  # def get_order_status_list
+  #   render json: Order.order_status_lists
+  # end
 
-  def get_order_status_base_list
-    render json: { order_status_base_list: Order.order_status_base_lists.keys }
-  end
+  # def get_order_status_base_list
+  #   render json: { order_status_base_list: Order.order_status_base_lists.keys }
+  # end
 
-  def get_order_status_block_list
-    render json: { order_status_block_list: Order.order_status_block_lists.keys }
-  end
+  # def get_order_status_block_list
+  #   render json: { order_status_block_list: Order.order_status_block_lists.keys }
+  # end
 
   def get_orders_by_organization
     uuid = get_orders_by_organization_params[:uuid]
@@ -63,6 +63,14 @@ class OrdersController < ApplicationController
   end
 
   def get_order_possibles_states
+    possible_states = Order.possibles_states
+    return render_json_response(obj:possible_states, state: ResponseHandler::STATES[:success])
+  end
+
+  def get_order_initial_states
+    initial_states = Order.initial_states
+    initial_states = initial_states.keys.map { |key| key.split('_').last.to_i }
+    return render_json_response(obj:initial_states, state: ResponseHandler::STATES[:success])
   end
 
   def create

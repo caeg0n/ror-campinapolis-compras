@@ -82,7 +82,7 @@ class AddressesController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:device_id, :name,:title , :cel, :address_detail,:id)
+      params.require(:address).permit(:device_id, :name,:title , :cel, :address_detail,:id,:format)
     end
     
 end

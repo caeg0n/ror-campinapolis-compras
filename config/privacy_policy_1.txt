@@ -1,0 +1,43 @@
+Política de Privacidade para Aplicativo Android "Campinápolis Pesquisas"
+
+1. Introdução
+Bem-vindo ao nosso aplicativo de pesquisa eleitoral "Campinápolis Pesquisas", disponível na Google Play. Este aplicativo foi desenvolvido para coletar votos do público e exibir possíveis resultados das eleições. Valorizamos sua privacidade e estamos comprometidos em protegê-la. Esta política de privacidade descreve como coletamos, usamos, compartilhamos e protegemos suas informações pessoais.
+
+2. Dados Coletados
+Ao utilizar nosso aplicativo, podemos coletar os seguintes dados pessoais:
+
+Nome
+Idade
+Localização (através de GPS)
+Escolha de voto
+Dados de dispositivo (modelo, sistema operacional, etc.)
+3. Finalidade da Coleta
+Os dados coletados são utilizados para:
+
+Realizar e exibir pesquisas eleitorais
+Melhorar a qualidade e a precisão de nossas pesquisas
+Enviar comunicações relacionadas à pesquisa, se permitido
+4. Compartilhamento de Dados
+Podemos compartilhar suas informações com:
+
+Parceiros de análise de dados
+Autoridades eleitorais, se exigido por lei
+Esses parceiros são proibidos de usar seus dados para qualquer outra finalidade além das estabelecidas por esta política.
+5. Segurança dos Dados
+Implementamos medidas de segurança robustas para proteger suas informações, incluindo:
+
+Criptografia dos dados durante a transmissão e armazenamento
+Controle de acesso rigoroso aos nossos servidores
+6. Direitos dos Usuários
+Você tem o direito de acessar, corrigir ou excluir suas informações pessoais. Para exercer esses direitos, entre em contato conosco através do email: suporte@campinapolispesquisas.com.
+
+7. Mudanças na Política de Privacidade
+Qualquer alteração em nossa política será comunicada através do nosso aplicativo e do nosso site.
+
+8. Contato
+Para dúvidas ou preocupações sobre nossa prática de privacidade, entre em contato através do email: suporte@campinapolispesquisas.com.
+
+9. Consentimento
+Ao utilizar nosso aplicativo, você concorda com a coleta e uso de suas informações conforme descrito nesta política de privacidade.
+
+Agradecemos por utilizar o "Campinápolis Pesquisas" e por participar de nossa pesquisa eleitoral. Sua opinião é importante para nós e para o futuro de nosso processo eleitoral.

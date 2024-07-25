@@ -1,5 +1,4 @@
 require 'digest/md5'
-require 'factory_bot_rails'
 #tabacaria aguiar
 Address.destroy_all
 Payment.destroy_all
